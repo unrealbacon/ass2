@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>範例網頁</title>
+    <style>
+        /* 全局樣式 */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 頁面頂部藍色banner，調整為橘色banner的兩倍高度 */
+        .blue-banner {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 240px;
+            /* 藍色banner高度為橘色banner的兩倍 */
+            width: 100%;
+            font-size: 48px;
+            /* 字體加大 */
+            font-weight: bold;
+            /* 字體加粗 */
+        }
+
+        /* 固定的status bar */
+        .status-bar {
+            position: relative;
+            /* 預設為相對定位 */
+            width: 100%;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: flex-start;
+            /* 按鈕靠左排列 */
+            padding-left: 10px;
+            transition: top 0.3s;
+        }
+
+        .fixed {
+            position: fixed;
+            /* 滾動後固定 */
+            top: 0;
+            z-index: 1;
+        }
+
+        .status-bar button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: transparent;
+            /* 去除藍色背景 */
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .status-bar button:first-child {
+            font-size: 18px;
+            /* 首頁按鈕字體稍大 */
+        }
+
+        .status-bar button:hover {
+            background-color: #000000;
+            /* 滑鼠滑過時變黑色 */
+            color: white;
+        }
+
+        /* 區段樣式 */
+        .section {
+            padding-top: 50px;
+            margin: 0;
+            /* 移除橘色banner的父容器的margin */
+        }
+
+        .orange-banner {
+            background-color: #FFA500;
+            color: white;
+            text-align: center;
+            font-size: 36px;
+            /* 調整橘色banner中的文字大小 */
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+            /* 橘色banner高度 */
+            width: 100vw;
+            /* 確保橘色banner覆蓋整個視口寬度 */
+            margin-left: calc(-50vw + 50%);
+            /* 確保橘色banner居中且佔滿整個頁面 */
+        }
+
+        .content-box {
+            background-color: #e0e0e0;
+            /* 更淺的灰色背景 */
+            padding: 60px;
+            /* 增加灰色文字方塊的padding */
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 15px;
+            /* 圓角 */
+            max-width: 800px;
+            /* 灰色方塊寬度小於橘色banner */
+            margin-left: auto;
+            margin-right: auto;
+            min-height: 300px;
+            /* 灰色文字方塊高度加高 */
+        }
+
+        .content-box h1 {
+            font-size: 24px;
+            /* 字體稍大 */
+            font-weight: bold;
+            /* 加粗 */
+            margin-bottom: 15px;
+        }
+
+        .content-box p {
+            font-size: 16px;
+            line-height: 1.8;
+            /* 增加行距 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 頁面頂部藍色banner -->
+    <div class="blue-banner" id="home">
+        頁面頂部藍色Banner
+    </div>
+
+    <!-- 固定的status bar -->
+    <div class="status-bar" id="statusBar">
+        <button onclick="scrollToSection('home')">首頁</button>
+        <button onclick="scrollToSection('section1')">區段一</button>
+        <button onclick="scrollToSection('section2')">區段二</button>
+        <button onclick="scrollToSection('section3')">區段三</button>
+    </div>
+
+    <!-- 區段一 -->
+    <div class="section" id="section1">
+        <div class="orange-banner">區段一</div>
+        <div class="content-box">
+            <h1>區段一內容</h1>
+            <p>這裡是區段一的描述性文字，顯示加大的字體和加粗的效果。這個灰色方塊背景顏色較淺，讓文字內容更加清晰。你可以填入更多內容以測試效果。這裡可以添加更多文字，顯示更長的段落內容來檢驗段落的顯示效果，並確保整體佈局適應長文本。
+            </p>
+        </div>
+    </div>
+
+    <!-- 區段二 -->
+    <div class="section" id="section2">
+        <div class="orange-banner">區段二</div>
+        <div class="content-box">
+            <h1>區段二內容</h1>
+            <p>這是區段二的文字內容。灰色背景使用了淺色，並且文字內容進行了加強處理。這裡可以展示更多的內容描述。同樣，你可以填入更多內容，以查看更長段落對整體佈局的影響和效果，進行更多的測試。</p>
+        </div>
+    </div>
+
+    <!-- 區段三 -->
+    <div class="section" id="section3">
+        <div class="orange-banner">區段三</div>
+        <div class="content-box">
+            <h1>區段三內容</h1>
+            <p>這裡是區段三的描述性文字，可以添加更多內容來查看區段的效果。淺灰色背景使得區域與橘色banner區分清楚。你可以繼續填入更多的文字來進行測試，檢查長文本的顯示效果和可讀性是否符合預期。</p>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function () {
+            var statusBar = document.getElementById("statusBar");
+            var blueBannerHeight = document.querySelector(".blue-banner").offsetHeight;
+            var scrollPosition = window.pageYOffset;
+
+            // 如果滾動超過藍色banner高度，固定Status bar在最上方
+            if (scrollPosition > blueBannerHeight) {
+                statusBar.classList.add("fixed");
+            } else {
+                statusBar.classList.remove("fixed");
+            }
+        };
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>
